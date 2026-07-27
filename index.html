@@ -1,0 +1,2018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mashdel Healthcare | Care & Assessments Built Around You</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-dark: #123D8B;
+            --lighter-navy: #1A4B8C;
+            --royal-blue: #2C66C7;
+            --bright-blue: #4FA7F4;
+            --light-sky: #73C8FF;
+            --very-light: #DCEFFF;
+            --white: #FFFFFF;
+            --dark-gray: #555555;
+            --light-gray: #999999;
+            --light-bg: #F8FAFD;
+            --shadow: 0 10px 40px rgba(18, 61, 139, 0.08);
+            --shadow-lg: 0 20px 60px rgba(18, 61, 139, 0.12);
+            --radius: 16px;
+            --transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.7;
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--royal-blue);
+            color: var(--white);
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            border: 2px solid #c0c0c0;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(44, 102, 199, 0.2);
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--royal-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(44, 102, 199, 0.15);
+        }
+
+        .btn-outline-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--royal-blue);
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            border: 2px solid #c0c0c0;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-outline-primary:hover {
+            background: var(--royal-blue);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--royal-blue);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn-ghost-primary:hover {
+            border-bottom-color: var(--royal-blue);
+            transform: translateX(4px);
+        }
+
+        .btn-diagnostix {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--lighter-navy);
+            color: var(--white);
+            font-weight: 700;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            border: 2px solid var(--lighter-navy);
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(44, 102, 199, 0.25);
+            cursor: pointer;
+        }
+        .btn-diagnostix:hover {
+            background: var(--bright-blue);
+            color: var(--white);
+            border-color: var(--bright-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(79, 167, 244, 0.4);
+        }
+
+        /* ============================================
+                   HEADER / NAVBAR
+                ============================================ */
+        header {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 2px 30px rgba(18, 61, 139, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 100px;
+            padding: 18px 50px;
+            border-bottom: 1px solid rgba(44, 102, 199, 0.08);
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .logo-icon {
+            height: 80px;
+            width: auto;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(18, 61, 139, 0.04);
+        }
+        .logo-icon img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            line-height: 1.2;
+        }
+        .logo-text .company-name {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--lighter-navy);
+            letter-spacing: -0.5px;
+        }
+        .logo-text .healthcare {
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--bright-blue);
+            letter-spacing: 0.5px;
+            background: none;
+            padding: 0;
+            display: block;
+            margin-top: -4px;
+        }
+        .logo-text .tagline {
+            font-size: 10px;
+            font-weight: 400;
+            color: var(--light-gray);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--primary-dark);
+            font-weight: 500;
+            font-size: 20px;
+            transition: var(--transition);
+            position: relative;
+            padding: 4px 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--bright-blue);
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--bright-blue);
+        }
+
+        .nav-diagnostix-btn {
+            background: var(--lighter-navy);
+            color: var(--white) !important;
+            padding: 8px 24px !important;
+            border-radius: 50px;
+            border: 2px solid var(--lighter-navy);
+            transition: var(--transition);
+            font-weight: 700 !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            font-size: 18px !important;
+            box-shadow: 0 4px 20px rgba(44, 102, 199, 0.2);
+        }
+        .nav-diagnostix-btn::after {
+            display: none !important;
+        }
+        .nav-diagnostix-btn:hover {
+            background: var(--bright-blue) !important;
+            color: var(--white) !important;
+            border-color: var(--bright-blue) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(79, 167, 244, 0.35);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 6px 4px;
+            z-index: 1100;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--primary-dark);
+            border-radius: 6px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 6px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -6px);
+        }
+
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 20px;
+            }
+            .nav-links a {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+                height: auto;
+            }
+            .navbar {
+                flex-wrap: nowrap;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 20px 24px 30px;
+                gap: 16px;
+                box-shadow: 0 20px 40px rgba(18, 61, 139, 0.08);
+                border-top: 1px solid rgba(44, 102, 199, 0.1);
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease, opacity 0.35s ease, padding 0.3s ease;
+                pointer-events: none;
+                border-radius: 0 0 var(--radius) var(--radius);
+            }
+            .nav-links.active {
+                max-height: 600px;
+                opacity: 1;
+                pointer-events: all;
+                padding: 24px 24px 32px;
+            }
+            .nav-links a {
+                font-size: 18px;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba(18, 61, 139, 0.04);
+                width: 100%;
+                text-align: center;
+            }
+            .nav-links a::after {
+                display: none;
+            }
+            .nav-links a:hover {
+                background: rgba(44, 102, 199, 0.04);
+                border-radius: 8px;
+                padding-left: 12px;
+            }
+            .nav-diagnostix-btn {
+                justify-content: center;
+                padding: 14px !important;
+                margin-top: 8px;
+                font-size: 18px !important;
+                background: var(--lighter-navy);
+                color: var(--white) !important;
+                border: 2px solid var(--lighter-navy);
+                width: 100%;
+            }
+            .nav-diagnostix-btn:hover {
+                background: var(--bright-blue) !important;
+                color: var(--white) !important;
+                border-color: var(--bright-blue) !important;
+            }
+
+            .logo-text .company-name {
+                font-size: 26px;
+            }
+            .logo-text .healthcare {
+                font-size: 16px;
+            }
+            .logo-text .tagline {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+            .logo-icon {
+                height: 60px;
+            }
+            .logo-icon img {
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .logo-text .company-name {
+                font-size: 22px;
+            }
+            .logo-text .healthcare {
+                font-size: 14px;
+            }
+            .logo-text .tagline {
+                font-size: 7px;
+                letter-spacing: 0.8px;
+            }
+            .logo-icon {
+                height: 50px;
+            }
+            .logo-icon img {
+                height: 50px;
+            }
+        }
+
+        /* ============================================
+                   HERO with IMG tag (not CSS background)
+                ============================================ */
+        .hero {
+            position: relative;
+            padding: 0;
+            color: var(--white);
+            overflow: hidden;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, rgba(18, 61, 139, 0.85) 0%, rgba(44, 102, 199, 0.85) 45%, rgba(79, 167, 244, 0.85) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 80px 24px 100px;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .hero h1 span {
+            color: var(--bright-blue);
+            font-weight: 800;
+        }
+        .hero h1 .accent-text {
+            color: var(--very-light);
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 18px;
+            margin-bottom: 36px;
+            padding: 0 10px;
+        }
+        .service-tag {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.3px;
+            transition: var(--transition);
+        }
+        .service-tag:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+        .service-tag.highlight-tag {
+            background: var(--bright-blue);
+            border-color: var(--bright-blue);
+            color: var(--white);
+            font-weight: 600;
+        }
+        .service-tag.highlight-tag:hover {
+            background: var(--light-sky);
+            border-color: var(--light-sky);
+            color: var(--white);
+        }
+        .service-tag.hero-highlight-tag {
+            font-size: 1rem;
+            padding: 8px 26px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .hero-buttons .btn-primary {
+            background: var(--bright-blue);
+            border-color: #c0c0c0;
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(79, 167, 244, 0.2);
+        }
+        .hero-buttons .btn-primary:hover {
+            background: transparent;
+            color: var(--bright-blue);
+            box-shadow: 0 8px 30px rgba(79, 167, 244, 0.1);
+        }
+        .hero-buttons .btn-outline-primary {
+            border-color: #c0c0c0;
+            color: var(--white);
+        }
+        .hero-buttons .btn-outline-primary:hover {
+            background: var(--white);
+            color: var(--primary-dark);
+            border-color: var(--white);
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+            .hero-content {
+                padding: 60px 24px 80px;
+            }
+            .service-tag.hero-highlight-tag {
+                font-size: 0.95rem;
+                padding: 7px 22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 500px;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-content {
+                padding: 50px 24px 60px;
+            }
+            .service-tag {
+                font-size: 0.75rem;
+                padding: 4px 14px;
+            }
+            .service-tag.hero-highlight-tag {
+                font-size: 0.85rem;
+                padding: 6px 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            .hero-content {
+                padding: 40px 16px 50px;
+            }
+            .service-tag {
+                font-size: 0.7rem;
+                padding: 4px 12px;
+            }
+            .service-tag.hero-highlight-tag {
+                font-size: 0.8rem;
+                padding: 5px 16px;
+            }
+        }
+
+        /* ===== SECTION TITLES ===== */
+        .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .section-title .label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--bright-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 6px;
+        }
+        .section-title h2 {
+            font-size: 2.4rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        .section-title h2 span {
+            color: var(--bright-blue);
+        }
+        .section-title .line {
+            width: 60px;
+            height: 3px;
+            background: var(--bright-blue);
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .section-title p {
+            color: var(--dark-gray);
+            max-width: 620px;
+            margin: 12px auto 0;
+            font-size: 1.05rem;
+        }
+
+        /* ===== ABOUT ===== */
+        .about {
+            padding: 80px 0 60px;
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .about-text h3 {
+            color: var(--primary-dark);
+            font-size: 1.8rem;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .about-text h3 i {
+            color: var(--bright-blue);
+        }
+        .about-text p {
+            color: var(--dark-gray);
+            font-size: 1.02rem;
+            margin-bottom: 16px;
+        }
+        .about-stats-card {
+            background: var(--light-bg);
+            padding: 36px 32px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--bright-blue);
+            box-shadow: var(--shadow);
+        }
+        .about-stats-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .about-stats-card h4 i {
+            color: var(--bright-blue);
+        }
+        .about-stats-card p {
+            color: var(--dark-gray);
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== VALUES ===== */
+        .values {
+            padding: 70px 0;
+            background: var(--light-bg);
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 24px;
+        }
+        .value-card {
+            background: var(--white);
+            padding: 32px 20px 28px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 3px solid transparent;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--bright-blue), var(--light-sky));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .value-card:hover::before {
+            opacity: 1;
+        }
+        .value-card:hover {
+            border-bottom-color: var(--bright-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .value-card .icon-wrap {
+            width: 60px;
+            height: 60px;
+            background: rgba(44, 102, 199, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            font-size: 1.6rem;
+            color: var(--bright-blue);
+            transition: var(--transition);
+        }
+        .value-card:hover .icon-wrap {
+            background: rgba(44, 102, 199, 0.1);
+            transform: scale(1.05);
+        }
+        .value-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+            margin-bottom: 6px;
+        }
+        .value-card p {
+            color: var(--dark-gray);
+            font-size: 0.88rem;
+        }
+
+        /* ===== SERVICES with Images ===== */
+        .services {
+            padding: 70px 0 80px;
+            background: var(--white);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(44, 102, 199, 0.05);
+            transition: var(--transition);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(44, 102, 199, 0.1);
+        }
+        .service-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            background-color: var(--light-bg);
+        }
+        .service-card-content {
+            padding: 24px 22px 28px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .service-card .s-icon {
+            font-size: 2rem;
+            color: var(--bright-blue);
+            margin-bottom: 10px;
+            display: block;
+        }
+        .service-card h4 {
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .service-card p {
+            color: var(--dark-gray);
+            font-size: 0.88rem;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .service-card .btn-ghost-primary {
+            font-size: 0.85rem;
+            align-self: center;
+        }
+
+        @media (max-width: 992px) {
+            .service-card img {
+                height: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            }
+            .service-card img {
+                height: 140px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .service-card img {
+                height: 120px;
+            }
+        }
+
+        /* ===== DIAGNOSTIX CTA (now renamed) ===== */
+        .diagnostix-cta {
+            padding: 50px 0 70px;
+            background: var(--light-bg);
+            position: relative;
+            overflow: hidden;
+        }
+        .diagnostix-cta::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(44, 102, 199, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .diagnostix-mega {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 48px 56px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            box-shadow: 0 20px 60px rgba(18, 61, 139, 0.08);
+            border: 1px solid rgba(44, 102, 199, 0.15);
+            transition: var(--transition);
+            position: relative;
+            z-index: 2;
+        }
+        .diagnostix-mega:hover {
+            transform: scale(1.01);
+            box-shadow: 0 28px 72px rgba(44, 102, 199, 0.1);
+        }
+
+        .diagnostix-mega .left {
+            flex: 2;
+            min-width: 260px;
+        }
+        .diagnostix-mega .left .tag {
+            display: inline-block;
+            background: var(--bright-blue);
+            color: var(--white);
+            padding: 4px 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .diagnostix-mega .left h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .diagnostix-mega .left h2 i {
+            color: var(--bright-blue);
+        }
+        .diagnostix-mega .left p {
+            color: var(--dark-gray);
+            font-size: 1.02rem;
+            max-width: 580px;
+        }
+        .diagnostix-mega .right {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+        .diagnostix-mega .right .btn-diagnostix {
+            font-size: 1.1rem;
+            padding: 18px 44px;
+        }
+        .diagnostix-mega .right small {
+            display: block;
+            color: var(--dark-gray);
+            margin-top: 10px;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 992px) {
+            .diagnostix-mega {
+                flex-direction: column;
+                text-align: center;
+                padding: 36px 28px;
+            }
+            .diagnostix-mega .left p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .diagnostix-mega .left h2 {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .diagnostix-mega {
+                padding: 28px 18px;
+            }
+            .diagnostix-mega .left h2 {
+                font-size: 1.5rem;
+                flex-wrap: wrap;
+            }
+            .diagnostix-mega .right .btn-diagnostix {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            padding: 70px 0;
+            background: var(--white);
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 28px;
+        }
+        .contact-card {
+            background: var(--light-bg);
+            padding: 28px 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(44, 102, 199, 0.1);
+            box-shadow: var(--shadow-lg);
+        }
+        .contact-card .c-icon {
+            font-size: 2rem;
+            color: var(--bright-blue);
+            margin-bottom: 12px;
+            display: block;
+        }
+        .contact-card h4 {
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+            font-size: 1.1rem;
+        }
+        .contact-card p,
+        .contact-card a {
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .contact-card a {
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+        .contact-card a:hover {
+            color: var(--bright-blue);
+        }
+
+        @media (max-width: 480px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ============================================
+                   FOOTER
+                ============================================ */
+        footer {
+            background: var(--primary-dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 50px 0 20px;
+            border-top: 4px solid var(--bright-blue);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 {
+            color: var(--white);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        .footer-col h4 i {
+            color: var(--bright-blue);
+            margin-right: 8px;
+        }
+        .footer-col p,
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+            line-height: 2;
+            display: block;
+            transition: var(--transition);
+        }
+        .footer-col a:hover {
+            color: var(--bright-blue);
+            transform: translateX(4px);
+        }
+        .footer-col .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        .footer-col .footer-logo img {
+            height: 60px;
+            width: auto;
+            border-radius: 50%;
+            border: 2px solid var(--bright-blue);
+            object-fit: cover;
+        }
+        .footer-col .footer-logo span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .footer-col .footer-logo span span {
+            color: var(--bright-blue);
+        }
+        .footer-col .tagline {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 16px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 14px;
+            margin-top: 10px;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .social-icons a:hover {
+            background: var(--bright-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.85rem;
+        }
+        .footer-bottom .copyright {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            margin-left: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .footer-legal a:hover {
+            color: var(--bright-blue);
+        }
+        .footer-legal a:first-child {
+            margin-left: 0;
+        }
+
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .footer-col .footer-logo {
+                justify-content: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-legal a {
+                margin: 0 10px;
+            }
+        }
+
+        /* ============================================
+                   FLOATING CALLBACK & MODAL
+                ============================================ */
+        .callback-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: var(--bright-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 60px;
+            padding: 16px 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 8px 36px rgba(44, 102, 199, 0.2);
+            cursor: pointer;
+            z-index: 999;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--bright-blue);
+        }
+        .callback-float:hover {
+            transform: scale(1.04) translateY(-2px);
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            box-shadow: 0 12px 44px rgba(18, 61, 139, 0.3);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(18, 61, 139, 0.4);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-box {
+            background: var(--white);
+            max-width: 440px;
+            width: 92%;
+            padding: 36px 32px 32px;
+            border-radius: 20px;
+            box-shadow: 0 32px 72px rgba(0, 0, 0, 0.15);
+            border-top: 4px solid var(--bright-blue);
+            position: relative;
+            animation: fadeUp 0.35s ease;
+        }
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .modal-box .close-modal {
+            position: absolute;
+            top: 14px;
+            right: 18px;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            background: none;
+            border: none;
+            transition: var(--transition);
+            line-height: 1;
+        }
+        .modal-box .close-modal:hover {
+            color: var(--primary-dark);
+            transform: rotate(90deg);
+        }
+        .modal-box h2 {
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+        }
+        .modal-box h2 i {
+            color: var(--bright-blue);
+        }
+        .modal-box p {
+            color: var(--dark-gray);
+            font-size: 0.92rem;
+            margin-bottom: 20px;
+        }
+        .modal-box label {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 14px;
+        }
+        .modal-box input,
+        .modal-box select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            margin-top: 4px;
+            transition: 0.2s;
+            background: var(--white);
+        }
+        .modal-box input:focus,
+        .modal-box select:focus {
+            outline: none;
+            border-color: var(--bright-blue);
+            box-shadow: 0 0 0 3px rgba(44, 102, 199, 0.08);
+        }
+        .modal-box .submit-btn {
+            background: var(--royal-blue);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            width: 100%;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 22px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--royal-blue);
+        }
+        .modal-box .submit-btn:hover {
+            background: var(--bright-blue);
+            border-color: var(--bright-blue);
+        }
+
+        /* ============================================
+                   COOKIES CONSENT BANNER
+                ============================================ */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1A2A3F;
+            color: rgba(255, 255, 255, 0.9);
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            z-index: 9999;
+            border-top: 3px solid var(--bright-blue);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .cookie-banner p {
+            font-size: 0.9rem;
+            margin: 0;
+            flex: 1 1 300px;
+        }
+        .cookie-banner p a {
+            color: var(--bright-blue);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .cookie-banner p a:hover {
+            color: var(--white);
+        }
+        .cookie-banner .cookie-actions {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-banner .cookie-actions button {
+            background: var(--bright-blue);
+            color: var(--white);
+            border: none;
+            padding: 8px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--bright-blue);
+        }
+        .cookie-banner .cookie-actions button:hover {
+            background: transparent;
+            color: var(--bright-blue);
+        }
+        .cookie-banner .cookie-actions .btn-secondary {
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .cookie-banner .cookie-actions .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        @media (max-width: 600px) {
+            .cookie-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px;
+            }
+            .cookie-banner .cookie-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ============================================
+                   LEGAL OVERLAY (Privacy, Terms, Cookie)
+                ============================================ */
+        .legal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #F8FAFD;
+            z-index: 99999;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+        .legal-overlay.active {
+            display: block;
+        }
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+        }
+        .legal-content h1 {
+            color: #123D8B;
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+            border-bottom: 3px solid #4FA7F4;
+            padding-bottom: 16px;
+        }
+        .legal-content .last-updated {
+            color: #999;
+            font-size: 0.85rem;
+            margin-bottom: 30px;
+        }
+        .legal-content h2 {
+            color: #123D8B;
+            font-size: 1.3rem;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+        .legal-content p {
+            color: #555;
+            margin-bottom: 14px;
+        }
+        .legal-content .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: #4FA7F4;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .legal-content .back-link:hover {
+            border-bottom-color: #4FA7F4;
+        }
+
+        @media (max-width: 600px) {
+            .legal-content {
+                padding: 30px 20px;
+            }
+            .legal-content h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER / NAVBAR ===== -->
+    <header>
+        <div class="navbar">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <img src="logo.png" alt="Mashdel Healthcare Logo" />
+                </div>
+                <div class="logo-text">
+                    <span class="company-name">Mashdel</span>
+                    <span class="healthcare">HEALTHCARE</span>
+                    <span class="tagline">PARTNERSHIPS FOR SUCCESS</span>
+                </div>
+            </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#values">Values</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="diagnostix/index.html" class="nav-diagnostix-btn">
+                        <i class="fas fa-flask"></i> Mashdel Neurodevelopmental Assessments
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- ===== HERO with IMG tag ===== -->
+    <section class="hero">
+        <!-- Hero Image as <img> tag -->
+        <img src="hero_image.webp" alt="Calm and compassionate healthcare environment with caring professionals dedicated to your wellbeing." class="hero-image" loading="lazy" />
+
+        <!-- Blue Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Content on top -->
+        <div class="container">
+            <div class="hero-content">
+                <h1>Care &amp; Assessments <span>Built</span> <span class="accent-text">Around You</span></h1>
+                <p class="hero-subtitle">
+                    Compassionate, personalised care and specialist neurodevelopmental assessments —
+                    delivered by experienced nurses and care professionals dedicated to your wellbeing.
+                </p>
+
+                <div class="service-tags">
+                    <span class="service-tag highlight-tag hero-highlight-tag"><i class="fas fa-star" style="margin-right:4px;"></i> Autism &amp; ADHD Assessments</span>
+                    <span class="service-tag">Homecare</span>
+                    <span class="service-tag">Live-in Care</span>
+                    <span class="service-tag">Specialist Support</span>
+                    <span class="service-tag">Respite Care</span>
+                    <span class="service-tag">Complex Care</span>
+                    <span class="service-tag">Supported Living</span>
+                </div>
+
+                <div class="hero-buttons">
+                    <a href="#services" class="btn-primary"><i class="fas fa-arrow-right"></i> Our Services</a>
+                    <a href="#contact" class="btn-outline-primary"><i class="fas fa-phone-alt"></i> Get in Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <span class="label">About Us</span>
+                <h2>Partnerships for <span>Success</span></h2>
+                <div class="line"></div>
+                <p>Established CQC-registered company founded in 2014 by RGN, RMN Nurses, and Midwives.</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3><i class="fas fa-heart"></i> Who We Are</h3>
+                    <p>
+                        Mashdel Healthcare is an established CQC-registered company founded in 2014 by RGN, RMN Nurses,
+                        and Midwives. With over <strong>50 years of combined experience</strong> in the UK and abroad,
+                        we are dedicated to providing access to stimulating, innovative personal healthcare.
+                    </p>
+                    <p>
+                        We treat service users, employees, and partners with <strong>respect, dignity, and compassion</strong>
+                        while delivering excellence in community and healthcare settings.
+                    </p>
+                </div>
+                <div class="about-stats-card">
+                    <h4><i class="fas fa-bullseye"></i> Our Mission</h4>
+                    <p>
+                        To provide access to stimulating, innovative personal healthcare where service users, employees,
+                        and partners are treated with respect, dignity, and compassion while delivering excellence in
+                        community and healthcare settings.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VALUES ===== -->
+    <section class="values" id="values">
+        <div class="container">
+            <div class="section-title">
+                <span class="label">Our Manifesto</span>
+                <h2>Core <span>Values</span></h2>
+                <div class="line"></div>
+                <p>Principles that guide everything we do at Mashdel Healthcare.</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon-wrap"><i class="fas fa-users"></i></div>
+                    <h4>Teamwork</h4>
+                    <p>Partnership for success with insights from service users and family members.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrap"><i class="fas fa-handshake"></i></div>
+                    <h4>Respect</h4>
+                    <p>Treating people with dignity and respect at the heart of our service.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrap"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Integrity</h4>
+                    <p>Ensuring our actions are consistent with our core values.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrap"><i class="fas fa-heartbeat"></i></div>
+                    <h4>Compassion</h4>
+                    <p>Deep-seated empathy and genuine connection with our clients.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrap"><i class="fas fa-star"></i></div>
+                    <h4>Excellence</h4>
+                    <p>Delivering reliable, safe, and efficient care every time.</p>
+                </div>
+                <div class="value-card">
+                    <div class="icon-wrap"><i class="fas fa-check-circle"></i></div>
+                    <h4>Choice</h4>
+                    <p>Supporting people to express views and make informed choices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES with Images ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <span class="label">What We Offer</span>
+                <h2>Our <span>Services</span></h2>
+                <div class="line"></div>
+                <p>Comprehensive care tailored to meet diverse community and healthcare needs.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Homecare -->
+                <div class="service-card">
+                    <img src="homecare.jpg" alt="Warm image of a caregiver gently assisting an elderly person at home, promoting comfort and independence." loading="lazy">
+                    <div class="service-card-content">
+                        <span class="s-icon"><i class="fas fa-home"></i></span>
+                        <h4>Homecare</h4>
+                        <p>Flexible care in the comfort of your own home, promoting independence.</p>
+                    </div>
+                </div>
+
+                <!-- Live-in Care -->
+                <div class="service-card">
+                    <img src="live-in-care.jpg" alt="Friendly caregiver sharing a warm drink with an elderly person in a cosy living room." loading="lazy">
+                    <div class="service-card-content">
+                        <span class="s-icon"><i class="fas fa-bed"></i></span>
+                        <h4>Live-in Care</h4>
+                        <p>Safe alternative to residential care with dedicated companionship.</p>
+                    </div>
+                </div>
+
+                <!-- Specialist Support -->
+                <div class="service-card">
+                    <img src="speacilist_support.jpg" alt="Peaceful image of a person receiving supportive care during a gentle walk in a tranquil park." loading="lazy">
+                    <div class="service-card-content">
+                        <span class="s-icon"><i class="fas fa-puzzle-piece"></i></span>
+                        <h4>Specialist Support</h4>
+                        <p>For autism, learning disabilities, mental health &amp; complex needs.</p>
+                    </div>
+                </div>
+
+                <!-- Respite Care -->
+                <div class="service-card">
+                    <img src="respite-care.jpg" alt="Serene garden and resting area symbolising relaxation and short‑term respite care." loading="lazy">
+                    <div class="service-card-content">
+                        <span class="s-icon"><i class="fas fa-dove"></i></span>
+                        <h4>Respite Care</h4>
+                        <p>Reliable short-term support giving parents and carers time to rest.</p>
+                    </div>
+                </div>
+
+                <!-- Autism & ADHD (Mashdel Neurodevelopmental Assessments) -->
+                <div class="service-card">
+                    <img src="autism and adhd .jpg" alt="Calm, sensory‑friendly environment with soft toys and neutral colours, representing neurodevelopmental assessment and support." loading="lazy">
+                    <div class="service-card-content">
+                        <span class="s-icon"><i class="fas fa-flask"></i></span>
+                        <h4>Autism &amp; ADHD</h4>
+                        <p>Comprehensive neurodevelopmental assessments via our Mashdel Neurodevelopmental Assessments platform — evidence-based, multidisciplinary.</p>
+                        <a href="diagnostix/index.html" class="btn-ghost-primary">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:28px;font-size:0.9rem;color:var(--dark-gray);">
+                <i class="fas fa-phone-alt" style="color:var(--bright-blue);margin-right:6px;"></i>
+                Call us for bespoke care packages tailored to your needs.
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Mashdel Neurodevelopmental Assessments CTA ===== -->
+    <section class="diagnostix-cta">
+        <div class="container">
+            <div class="diagnostix-mega">
+                <div class="left">
+                    <span class="tag"><i class="fas fa-microscope"></i> Specialist Assessments</span>
+                    <h2><i class="fas fa-flask"></i> Mashdel Neurodevelopmental Assessments</h2>
+                    <p>
+                        Access our full suite of neurodevelopmental assessments using validated, evidence-based tools.
+                        Our multidisciplinary team provides comprehensive evaluations and clear, practical recommendations.
+                    </p>
+                </div>
+                <div class="right">
+                    <a href="diagnostix/index.html" class="btn-diagnostix">
+                        Launch Mashdel Neurodevelopmental Assessments <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <small>Click to enter the assessment hub</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <span class="label">Connect With Us</span>
+                <h2>Get in <span>Touch</span></h2>
+                <div class="line"></div>
+                <p>We're here to help. Reach out to us today.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <span class="c-icon"><i class="fas fa-phone-alt"></i></span>
+                    <h4>Phone</h4>
+                    <p><a href="tel:01206266810">01206 266810</a> / <a href="tel:01206266812">12</a> / <a href="tel:01206266814">14</a></p>
+                </div>
+                <div class="contact-card">
+                    <span class="c-icon"><i class="fas fa-envelope"></i></span>
+                    <h4>Email</h4>
+                    <p><a href="mailto:info@mashdelhealthcare.com">info@mashdelhealthcare.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <span class="c-icon"><i class="fas fa-map-marker-alt"></i></span>
+                    <h4>Head Office</h4>
+                    <p>
+                        Mashdel Services,<br />
+                        Weston Business Centre,<br />
+                        Hawkins Road, Colchester,<br />
+                        Essex, CO2 8JX
+                    </p>
+                </div>
+                <div class="contact-card">
+                    <span class="c-icon"><i class="fas fa-globe"></i></span>
+                    <h4>Website</h4>
+                    <p><a href="#">mashdelhealthcare.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Mashdel Healthcare Logo" />
+                        <span>Mashdel <span>Healthcare</span></span>
+                    </div>
+                    <p class="tagline">Partnerships for Success — compassionate, personalised care.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4><i class="fas fa-link"></i> Quick Links</h4>
+                    <a href="#about">About Us</a>
+                    <a href="#values">Our Values</a>
+                    <a href="#services">Our Services</a>
+                    <a href="#contact">Contact</a>
+                    <a href="diagnostix/index.html">Mashdel Neurodevelopmental Assessments</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4><i class="fas fa-address-card"></i> Contact Us</h4>
+                    <p><i class="fas fa-phone-alt" style="width:24px;color:var(--bright-blue);"></i> 01206 266810 / 12 / 14</p>
+                    <p><i class="fas fa-envelope" style="width:24px;color:var(--bright-blue);"></i> info@mashdelhealthcare.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="width:24px;color:var(--bright-blue);"></i> Weston Business Centre, Hawkins Rd, Colchester CO2 8JX</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="copyright">&copy; 2026 Mashdel Healthcare. All rights reserved.</span>
+                <div class="footer-legal">
+                    <a onclick="openLegal('privacy')">Privacy Policy</a>
+                    <a onclick="openLegal('terms')">Terms &amp; Conditions</a>
+                    <a onclick="openLegal('cookie')">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    LEGAL OVERLAYS
+    ============================================ -->
+    <div id="legal-privacy" class="legal-overlay">
+        <div class="legal-content">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: July 2026</p>
+            <p>Mashdel Healthcare respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
+            <h2>1. Information We Collect</h2>
+            <p>We may collect personal information such as your name, email address, phone number, and any other details you provide when you contact us, request a call back, or use our services.</p>
+            <h2>2. How We Use Your Information</h2>
+            <p>We use your information to respond to your enquiries, provide our services, improve our website, and comply with legal obligations. We do not sell or share your data with third parties for marketing purposes without your explicit consent.</p>
+            <h2>3. Cookies</h2>
+            <p>We use cookies to enhance your experience on our site. You can manage your cookie preferences through your browser settings. For more details, please see our <a onclick="closeLegal(); openLegal('cookie');" style="color:#4FA7F4; cursor:pointer;">Cookie Policy</a>.</p>
+            <h2>4. Data Security</h2>
+            <p>We implement appropriate technical and organisational measures to protect your personal data against unauthorised access, loss, or alteration.</p>
+            <h2>5. Your Rights</h2>
+            <p>You have the right to access, correct, or delete your personal data at any time. To exercise these rights, please contact us at <a href="mailto:info@mashdelhealthcare.com" style="color:#4FA7F4;">info@mashdelhealthcare.com</a>.</p>
+            <h2>6. Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+            <a class="back-link" onclick="closeLegal()"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+        </div>
+    </div>
+
+    <div id="legal-terms" class="legal-overlay">
+        <div class="legal-content">
+            <h1>Terms &amp; Conditions</h1>
+            <p class="last-updated">Last updated: July 2026</p>
+            <p>Welcome to Mashdel Healthcare. By accessing or using our website and services, you agree to be bound by the following terms and conditions. Please read them carefully.</p>
+            <h2>1. Acceptance of Terms</h2>
+            <p>By using this website, you confirm that you accept these terms and that you agree to comply with them. If you do not agree, you must not use our site or services.</p>
+            <h2>2. Services Provided</h2>
+            <p>Mashdel Healthcare provides healthcare services including homecare, live-in care, specialist support, respite care, and neurodevelopmental assessments. All services are subject to availability and individual assessment.</p>
+            <h2>3. Accuracy of Information</h2>
+            <p>We strive to ensure all information on our website is accurate and up‑to‑date. However, we do not guarantee the completeness or accuracy of any content and accept no liability for any errors or omissions.</p>
+            <h2>4. Intellectual Property</h2>
+            <p>All content on this website – including text, graphics, logos, and images – is the property of Mashdel Healthcare and is protected by copyright laws. Unauthorised use is prohibited.</p>
+            <h2>5. Limitation of Liability</h2>
+            <p>Mashdel Healthcare shall not be liable for any direct, indirect, incidental, or consequential damages arising from the use of our website or services, to the fullest extent permitted by law.</p>
+            <h2>6. Governing Law</h2>
+            <p>These terms are governed by the laws of England and Wales. Any disputes shall be subject to the exclusive jurisdiction of the courts of England.</p>
+            <a class="back-link" onclick="closeLegal()"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+        </div>
+    </div>
+
+    <div id="legal-cookie" class="legal-overlay">
+        <div class="legal-content">
+            <h1>Cookie Policy</h1>
+            <p class="last-updated">Last updated: July 2026</p>
+            <p>This Cookie Policy explains how Mashdel Healthcare uses cookies and similar technologies on our website. By using our site, you consent to the use of cookies as described below.</p>
+            <h2>1. What Are Cookies?</h2>
+            <p>Cookies are small text files that are placed on your device when you visit a website. They help us improve your experience, remember your preferences, and understand how you interact with our site.</p>
+            <h2>2. Types of Cookies We Use</h2>
+            <p><strong>Essential Cookies:</strong> These are necessary for the website to function properly. They enable basic features like page navigation and access to secure areas.</p>
+            <p><strong>Analytics Cookies:</strong> We use these to understand how visitors interact with our site, so we can improve performance and content. All data is anonymous.</p>
+            <p><strong>Preference Cookies:</strong> These remember your choices (e.g., language or region) to provide a more personalised experience.</p>
+            <h2>3. Managing Your Cookie Preferences</h2>
+            <p>You can manage or disable cookies at any time through your browser settings. However, please note that disabling certain cookies may affect the functionality of our website.</p>
+            <h2>4. Third-Party Cookies</h2>
+            <p>We may use third‑party services (e.g., Google Analytics) that set their own cookies. We do not control these cookies, and we recommend reviewing the respective privacy policies of these services.</p>
+            <h2>5. Changes to This Policy</h2>
+            <p>We may update this Cookie Policy from time to time. Any changes will be posted on this page with an updated revision date.</p>
+            <a class="back-link" onclick="closeLegal()"><i class="fas fa-arrow-left"></i> Back to Homepage</a>
+        </div>
+    </div>
+
+    <!-- ============================================
+    FLOATING CALLBACK & COOKIES BANNER
+    ============================================ -->
+    <button class="callback-float" id="callbackBtn">
+        <i class="fas fa-phone-volume"></i> Request a Call Back
+    </button>
+
+    <div class="modal-overlay" id="callbackModal">
+        <div class="modal-box">
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+            <h2><i class="fas fa-headset"></i> Quick Call Back</h2>
+            <p>Fill in your details and one of our clinicians will call you back within 24 hours.</p>
+            <form id="callbackForm">
+                <label>Full Name</label>
+                <input type="text" placeholder="e.g. Jane Smith" required>
+
+                <label>Phone Number</label>
+                <input type="tel" placeholder="e.g. 07XXX XXX XXX" required>
+
+                <label>Email Address</label>
+                <input type="email" placeholder="jane@email.com" required>
+
+                <label>Preferred Call Time</label>
+                <select>
+                    <option>Morning (9am – 12pm)</option>
+                    <option>Afternoon (12pm – 5pm)</option>
+                    <option>Evening (5pm – 8pm)</option>
+                </select>
+
+                <button type="submit" class="submit-btn">Request Call Back</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="cookieBanner" class="cookie-banner">
+        <p>
+            We use cookies to enhance your experience. By continuing to visit this site you agree to our
+            <a onclick="closeLegal(); openLegal('cookie');">Cookie Policy</a>.
+        </p>
+        <div class="cookie-actions">
+            <button class="btn-secondary" id="declineCookies">Decline</button>
+            <button id="acceptCookies">Accept</button>
+        </div>
+    </div>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // ============================================
+        // 1. HAMBURGER TOGGLE
+        // ============================================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = event.target.closest('.navbar');
+            if (!isClickInside) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // ============================================
+        // 2. LEGAL OVERLAY
+        // ============================================
+        function openLegal(type) {
+            document.querySelectorAll('.legal-overlay').forEach(el => el.classList.remove('active'));
+            const target = document.getElementById('legal-' + type);
+            if (target) {
+                target.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLegal() {
+            document.querySelectorAll('.legal-overlay').forEach(el => el.classList.remove('active'));
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.legal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeLegal();
+                }
+            });
+        });
+
+        // ============================================
+        // 3. CALLBACK MODAL
+        // ============================================
+        const callbackBtn = document.getElementById('callbackBtn');
+        const modal = document.getElementById('callbackModal');
+        const closeBtn = document.getElementById('closeModalBtn');
+
+        callbackBtn.addEventListener('click', () => {
+            modal.classList.add('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.getElementById('callbackForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you! We will call you back shortly.');
+            modal.classList.remove('active');
+            e.target.reset();
+        });
+
+        // ============================================
+        // 4. COOKIES CONSENT
+        // ============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieBanner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+            const declineBtn = document.getElementById('declineCookies');
+
+            if (localStorage.getItem('cookieConsent') === 'true') {
+                cookieBanner.style.display = 'none';
+            }
+
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'true');
+                cookieBanner.style.display = 'none';
+            });
+
+            declineBtn.addEventListener('click', function() {
+                cookieBanner.style.display = 'none';
+            });
+        });
+    </script>
+
+</body>
+</html>
