@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mashdel Neurodevelopmental Assessments | Governance & CQC Compliance</title>
+  <meta name="description" content="Governance structure, quality assurance, CQC compliance, and regulatory information for Mashdel Neurodevelopmental Assessments.">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #F8FAFE; color: #1A2A3F; line-height: 1.6; }
+    
+    /* ===== Mashdel Healthcare Color Palette ===== */
+    :root {
+      --primary-dark: #123D8B;
+      --lighter-navy: #1A4B8C;
+      --royal-blue: #2C66C7;
+      --bright-blue: #4FA7F4;
+      --light-sky: #73C8FF;
+      --very-light: #DCEFFF;
+      --white: #FFFFFF;
+      --dark-gray: #555555;
+      --light-gray: #999999;
+      --light-bg: #F5F7FC;
+      --shadow-sm: 0 4px 12px rgba(18, 61, 139, 0.08);
+      --shadow-md: 0 8px 24px rgba(18, 61, 139, 0.12);
+    }
+    
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    
+    /* ===== BUTTONS ===== */
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 48px; font-weight: 600; text-decoration: none; transition: all 0.2s ease; cursor: pointer; border: none; }
+    .btn-primary { background: var(--royal-blue); color: white; }
+    .btn-primary:hover { background: var(--lighter-navy); transform: translateY(-2px); }
+    
+    /* Referral button - uses bright blue */
+    .btn-referral { background: var(--bright-blue); color: var(--primary-dark); font-weight: 700; padding: 8px 22px; border-radius: 48px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s ease; border: none; cursor: pointer; }
+    .btn-referral:hover { background: var(--royal-blue); color: white; transform: translateY(-2px); }
+    
+    /* ===== HEADER ===== */
+    header { background: white; box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100; }
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; flex-wrap: wrap; gap: 16px; }
+    
+    /* ---- Branding: logo + text hierarchy ---- */
+    .logo-container { 
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+    .logo-container img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .logo-mashdel {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+      letter-spacing: -0.5px;
+      line-height: 1.1;
+    }
+    .logo-sub {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--royal-blue);
+      letter-spacing: 0.3px;
+      margin-top: -2px;
+    }
+    .logo-tagline {
+      font-size: 0.65rem;
+      font-weight: 400;
+      color: var(--light-gray);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    
+    .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .nav-links a { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.2s; }
+    .nav-links a:hover { color: var(--bright-blue); }
+    
+    /* ===== PAGE TITLE ===== */
+    .page-title { background: linear-gradient(145deg, var(--primary-dark) 0%, var(--royal-blue) 45%, var(--bright-blue) 100%); color: white; padding: 100px 0 60px; text-align: center; }
+    .page-title h1 { font-size: 2.5rem; margin-bottom: 16px; }
+    .badge { display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(4px); padding: 4px 14px; border-radius: 40px; font-size: 0.75rem; font-weight: 500; margin-bottom: 20px; }
+    
+    /* ===== CARDS ===== */
+    .info-card { background: white; border-radius: 28px; padding: 32px; margin-bottom: 32px; box-shadow: var(--shadow-sm); border: 1px solid #E9EEF5; }
+    .info-card h2 { color: var(--primary-dark); margin-bottom: 20px; font-size: 1.6rem; border-left: 4px solid var(--bright-blue); padding-left: 16px; }
+    .info-card h3 { color: var(--royal-blue); margin: 24px 0 12px 0; font-size: 1.2rem; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin: 20px 0; }
+    .highlight { background: var(--light-bg); padding: 20px; border-radius: 20px; margin: 20px 0; border-left: 3px solid var(--bright-blue); }
+    .gov-list { list-style: none; }
+    .gov-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 12px; }
+    .gov-list li i { color: var(--royal-blue); margin-top: 3px; width: 20px; }
+    
+    /* ===== FOOTER ===== */
+    footer { background: var(--primary-dark); color: white; padding: 48px 0 24px; margin-top: 48px; text-align: center; }
+    .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; margin: 0 12px; font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--bright-blue); }
+    
+    @media (max-width: 768px) { 
+      .grid-2 { grid-template-columns: 1fr; } 
+      .page-title h1 { font-size: 1.8rem; }
+      .nav-links { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 8px; }
+      .logo-container img { height: 45px; }
+      .logo-mashdel { font-size: 1.2rem; }
+      .logo-sub { font-size: 0.65rem; }
+      .logo-tagline { font-size: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo-container">
+        <img src="../logo.png" alt="Mashdel Healthcare Logo">
+        <div class="logo-text">
+          <div class="logo-mashdel">Mashdel</div>
+          <div class="logo-sub">Neurodevelopmental Assessments</div>
+          <div class="logo-tagline">Assessment · Diagnosis · Support</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">← Home</a>
+        <a href="for-professionals.html">For Professionals</a>
+        <a href="referral.html" class="btn-referral"><i class="fa-regular fa-file-alt"></i> Referral →</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="page-title">
+  <div class="container">
+    <span class="badge"><i class="fa-regular fa-building"></i> For CQC Inspectors & Commissioners</span>
+    <h1>Governance, Quality Assurance & CQC Compliance</h1>
+    <p>This document outlines our regulatory compliance, clinical governance, and quality assurance systems.</p>
+  </div>
+</section>
+
+<div class="container" style="margin: 48px auto;">
+  
+  <div class="info-card">
+    <h2>Provider Information</h2>
+    <div class="grid-2">
+      <div>
+        <p><strong>Provider organisation:</strong> Mashdel Neurodevelopmental Assessments</p>
+        <p><strong>Legal status:</strong> Independent healthcare provider</p>
+        <p><strong>Registered activity:</strong> Diagnostic and Screening Procedures</p>
+        <p><strong>Service name:</strong> Mashdel Neurodevelopmental Assessments</p>
+        <p><strong>Service location:</strong> Colchester, Essex</p>
+      </div>
+      <div>
+        <p><strong>CQC registration:</strong> Registered</p>
+        <p><strong>ICO registration:</strong> Registered</p>
+        <p><strong>GDPR compliant:</strong> Yes</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h2>1. Overview of the Service</h2>
+    <p>Mashdel Neurodevelopmental Assessments provides specialist neurodevelopmental diagnostic and screening procedures for children, young people, and adults using validated tools including ADOS-2, ADI-R, and DIVA-5.</p>
+    <div class="highlight">
+      <p><strong>The purpose of the service</strong> is to provide safe, timely, person-centred neurodevelopmental assessment and post-assessment support that improves outcomes for service users and families.</p>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <h2>2. Service Users</h2>
+    <ul class="gov-list">
+      <li><i class="fa-solid fa-child"></i> Children and young people (5-18) with suspected autism or ADHD</li>
+      <li><i class="fa-solid fa-user"></i> Adults (18+) with suspected autism or ADHD</li>
+      <li><i class="fa-solid fa-family"></i> Families and carers seeking diagnostic clarification</li>
+      <li><i class="fa-solid fa-building"></i> Individuals referred through NHS, local authority, education, or self-funded routes</li>
+    </ul>
+  </div>
+
+  <div class="info-card">
+    <h2>3. Governance Structure</h2>
+    <h3>Registered Manager</h3>
+    <p>Holds legal and operational responsibility for compliance with the Health and Social Care Act and CQC regulations.</p>
+    <h3>Clinical Lead</h3>
+    <p>A Registered Clinical Psychologist holds clinical accountability for diagnostic integrity, overseeing MDT meetings, NICE alignment, and clinical risk.</p>
+    <h3>Multidisciplinary Team (MDT)</h3>
+    <p>No diagnostic outcome is issued without appropriate clinical oversight and MDT governance, including defined Terms of Reference, recorded attendance, and escalation pathways.</p>
+  </div>
+
+  <div class="info-card">
+    <h2>4. Quality Assurance</h2>
+    <h3>Safe Recruitment</h3>
+    <ul class="gov-list"><li><i class="fa-solid fa-check"></i> Right to work checks</li><li><i class="fa-solid fa-check"></i> Enhanced DBS checks</li><li><i class="fa-solid fa-check"></i> Verification of qualifications</li><li><i class="fa-solid fa-check"></i> Full employment history with references</li></ul>
+    <h3>Training and Competence</h3>
+    <p>Staff complete mandatory training including safeguarding, information governance, and the Oliver McGowan programme.</p>
+    <h3>Clinical Audit</h3>
+    <p>Assessment reports are audited by the Clinical Lead for safety, tool usage, clinical reasoning, NICE adherence, and diagnostic rationale.</p>
+  </div>
+
+  <div class="info-card">
+    <h2>5. How the Service Meets CQC Expectations</h2>
+    <h3>Safe</h3>
+    <p>Safe recruitment, competence checks, clear systems for recording concerns, secure records, incident reporting and learning.</p>
+    <h3>Effective</h3>
+    <p>Recognised tools (ADOS-2, ADI-R, DIVA-5), MDT decision-making, supervision, NICE and NHS frameworks.</p>
+    <h3>Caring</h3>
+    <p>Person-centred care, listening, clear explanations, family inclusion, dignity and respect.</p>
+    <h3>Responsive</h3>
+    <p>Clear pre-assessment information, adjustments, post-diagnosis guidance, feedback and complaints used for improvement.</p>
+    <h3>Well-led</h3>
+    <p>Clear leadership, Registered Provider and Clinical Lead accountability, policies, governance meetings, quality checks.</p>
+  </div>
+
+  <div class="info-card">
+    <h2>6. Complaints and Escalation</h2>
+    <p>Clear complaints process: acknowledged within 3 working days, investigated, responded to within 28 days. Duty of Candour applies.</p>
+  </div>
+
+  <div style="text-align: center; margin-top: 40px;">
+    <a href="index.html" class="btn btn-primary"><i class="fa-solid fa-arrow-left"></i> Back to Homepage</a>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div style="margin-bottom: 24px;">
+      <div class="logo-container" style="justify-content: center; gap: 12px; flex-wrap: wrap;">
+        <img src="../logo.png" alt="Mashdel Healthcare" style="height: 50px; width: auto; object-fit: contain;">
+        <div class="logo-text" style="text-align: left;">
+          <div class="logo-mashdel" style="color: white; font-size: 1.4rem;">Mashdel</div>
+          <div class="logo-sub" style="color: var(--light-sky); font-size: 0.75rem;">Neurodevelopmental Assessments</div>
+          <div class="logo-tagline" style="color: rgba(255,255,255,0.6); font-size: 0.6rem;">Assessment · Diagnosis · Support</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-links" style="margin-bottom: 24px;">
+      <a href="index.html">Home</a>
+      <a href="for-families.html">For Families</a>
+      <a href="for-professionals.html">For Professionals</a>
+      <a href="vision-mission-values.html">Our Values</a>
+      <a href="referral.html">Referrals</a>
+    </div>
+    <p>© 2026 Mashdel Healthcare — Neurodevelopmental Assessments</p>
+    <p style="margin-top: 12px; font-size: 0.8rem;">Governance & Quality Assurance Document</p>
+  </div>
+</footer>
+</body>
+</html>
